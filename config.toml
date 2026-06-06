@@ -1,0 +1,254 @@
+[music]
+
+directories = [
+    "/Users/admin/Music",
+    "/Users/admin/Downloads"
+]
+
+formats = ["mp3", "wav", "flac", "ogg", "oga", "m4a", "aac", "alac", "aif", "aiff"]
+download_format = "m4a"
+
+[library]
+enabled = true
+database_path = "~/Music/TPlay/tplay_library.db"
+sync_folder = "~/Library/Mobile Documents/com~apple~CloudDocs/TPlay"
+export_serato = true
+export_rekordbox = true
+export_traktor = true
+export_json = true
+
+[player]
+volume = 80
+fps = 30
+
+[ytdlp]
+cookies_from_browser = ["chrome", "safari"]
+
+[telegram]
+enabled = true
+mode = "bot"
+bot_token = ""
+download_root = "/Users/admin/Music/TPlay/Telegram"
+discover_chats = true
+sync_on_start = false
+sync_on_open_folder = true
+download_on_play = true
+auto_analyze_after_download = true
+create_playlist_per_chat = true
+max_file_size_mb = 300
+allowed_extensions = [
+    "mp3",
+    "m4a",
+    "wav",
+    "flac",
+    "aiff",
+    "aac",
+    "ogg",
+    "opus"
+]
+
+[columns]
+time = true
+bpm = true
+key = true
+kbps = true
+rate = true
+size = true
+genre = false
+order = ["time", "bpm", "key", "kbps", "rate", "size", "genre"]
+
+[demucs]
+# 2 = htdemucs_ft_vocals -> vocals + no_vocals.
+# 4 = htdemucs drums/bass/other/vocals.
+# auto = try ONNX Runtime CPU for 2/4 stems, fallback to bundled CPU.
+# cpu = bundled demucs.cpp only.
+# onnx_cpu = require ONNX Runtime CPU and fail if unavailable.
+# coreml = require ONNX/CoreML CPU+GPU and fail if unavailable.
+backend = "auto"
+stems = 2
+two_stem_source = "vocals"
+output_directory = ""
+output_format = "wav"
+jobs = 0
+overlap = 0.25
+shift_seconds = 0.5
+
+[autocue]
+enabled = true
+write_serato = true
+write_traktor = true
+write_json = true
+backup_before_write = true
+overwrite_existing_cues = true
+cleanup_after_write = true
+# Used only as a tie-break when Serato and Traktor metadata disagree.
+# The TPlay library database is not used as a cue source during sync.
+sync_prefer = "serato"
+mode = "structure"
+beats_per_bar = 4
+snap_to_bar = true
+waveform_color = "gray"
+playhead_color = "green"
+
+# start, intro_end, verse_start, chorus_start, 
+# bridge_start, breakdown, buildup, first_drop, 
+# second_drop, outro_start, energy_peak, mix_in, mix_out.
+#
+# Cue colors: green, blue, red, orange, yellow, purple, white, cyan,
+# grey/gray, or custom hex values like "#35d66b" / "0x35d66b".
+
+[[autocue.cues]]
+index = 0
+name = "START"
+type = "start"
+color = "green"
+
+[[autocue.cues]]
+index = 1
+name = "VERSE START"
+type = "verse_start"
+color = "red"
+
+[[autocue.cues]]
+index = 2
+name = "DROP 1"
+type = "first_drop"
+color = "blue"
+
+[[autocue.cues]]
+index = 3
+name = "DROP 2"
+type = "second_drop"
+color = "orange"
+
+[[autocue.cues]]
+index = 4
+name = "OUTRO"
+type = "outro_start"
+color = "yellow"
+
+[keybinds]
+quit = ["q", "Q", "й", "Й"]
+cancel = "escape"
+play = "enter"
+toggle_playback = "space"
+up = "up"
+down = "down"
+left = "left"
+right = "right"
+switch_pane = "tab"
+delete = ["backspace", "delete"]
+focus_progress = "/"
+focus_speed = "?"
+focus_input = ["i", "I", "ш", "Ш"]
+paste_input = ["v", "V", "м", "М"]
+speed_reset = ":"
+pitch_lock = "\""
+help = ["h", "H", "р", "Р"]
+equalizer = ["e", "E", "у", "У"]
+equalizer_close = ["escape", "e", "E", "у", "У"]
+equalizer_reset = ["x", "X", "ч", "Ч"]
+metadata_close = ["escape", "enter", "m", "M", "ь", "Ь"]
+confirm_yes = ["y", "Y", "н", "Н"]
+confirm_no = ["escape", "n", "N", "т", "Т"]
+page_up = "page_up"
+page_down = "page_down"
+volume_down = ["-", "_"]
+volume_up = ["=", "+"]
+previous = ["[", "х", "Х"]
+next = ["]", "ъ", "Ъ"]
+refresh = ["r", "R", "к", "К"]
+playback_mode = ["p", "P", "з", "З"]
+stop = ["o", "O", "щ", "Щ"]
+toggle_activity = ["y", "Y", "н", "Н"]
+move = ["d", "D", "в", "В"]
+drag = ["g", "G", "п", "П"]
+open_folder = ["f", "F", "а", "А"]
+demucs = ["s", "S", "ы", "Ы"]
+normalize = ["n", "N", "т", "Т"]
+convert = ["c", "C", "с", "С"]
+auto_cue = ["x", "X", "ч", "Ч"]
+manual_cues = ["z", "Z", "я", "Я"]
+sync_cues = ["w", "W", "ц", "Ц"]
+trim = ["a", "A", "ф", "Ф"]
+metadata = ["m", "M", "ь", "Ь"]
+export_library = ["l", "L", "д", "Д"]
+import_library = ["u", "U", "г", "Г"]
+validate_library_export = ["k", "K", "л", "Л"]
+telegram = ["t", "T", "е", "Е"]
+sort_title = "1"
+sort_time = "2"
+sort_bpm = "3"
+sort_key = "4"
+sort_kbps = "5"
+sort_size = "6"
+sort_rate = "7"
+seek_back_15 = [",", "б"]
+seek_forward_15 = [".", "ю"]
+seek_back_30 = ["<", "Б"]
+seek_forward_30 = [">", "Ю"]
+
+[keybinds_marker]
+close = ["escape", "z", "Z", "я", "Я"]
+set = "enter"
+delete = ["backspace", "delete"]
+toggle_playback = "space"
+stop = ["o", "O", "щ", "Щ"]
+up = "up"
+down = "down"
+left = "left"
+right = "right"
+focus_speed = "?"
+speed_reset = ":"
+pitch_lock = "\""
+zoom_in = ["+", "="]
+zoom_out = ["-", "_"]
+seek_back_15 = "<"
+seek_forward_15 = ">"
+seek_back_01 = [",", "б"]
+seek_forward_01 = [".", "ю"]
+height_down = ["[", "х", "Х"]
+height_up = ["]", "ъ", "Ъ"]
+follow = ["t", "T", "е", "Е"]
+cue_1 = "1"
+cue_2 = "2"
+cue_3 = "3"
+cue_4 = "4"
+cue_5 = "5"
+cue_6 = "6"
+cue_7 = "7"
+cue_8 = "8"
+delete_cue_1 = "!"
+delete_cue_2 = "@"
+delete_cue_3 = ["#", "№"]
+delete_cue_4 = "$"
+delete_cue_5 = "%"
+delete_cue_6 = ["^", ","]
+delete_cue_7 = ["&", "."]
+delete_cue_8 = ["*", ";"]
+
+[keybinds_trim]
+close = ["escape", "a", "A", "ф", "Ф"]
+enter = "enter"
+toggle_playback = "space"
+stop = ["o", "O", "щ", "Щ"]
+up = "up"
+down = "down"
+left = "left"
+right = "right"
+focus_speed = "?"
+speed_reset = ":"
+pitch_lock = "\""
+start = "1"
+end = "2"
+save = ["s", "S", "ы", "Ы"]
+loop = ["l", "L", "д", "Д"]
+zoom_in = ["+", "="]
+zoom_out = ["-", "_"]
+seek_back_15 = ["<", "Б"]
+seek_forward_15 = [">", "Ю"]
+seek_back_01 = [",", "б"]
+seek_forward_01 = [".", "ю"]
+height_down = ["[", "х", "Х"]
+height_up = ["]", "ъ", "Ъ"]
+follow = ["t", "T", "е", "Е"]
